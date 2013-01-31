@@ -31,9 +31,9 @@ protected Othello oth_test;
 		
 		for (int j=0; j<8;j++){
 			for(int i=0;i<8;i++ ){
-				Assert.assertTrue("Le test s'est bien passé ",oth_test.getOt()[i][j].getEtat()==othe_1.getOt()[i][j].getEtat());
-				Assert.assertTrue("Le test s'est bien passé ",oth_test.getOt()[i][j].getPx()==othe_1.getOt()[i][j].getPx());
-				Assert.assertTrue("Le test s'est bien passé ",oth_test.getOt()[i][j].getPy()==othe_1.getOt()[i][j].getPy());
+				Assert.assertTrue(oth_test.getOt()[i][j].getEtat()==othe_1.getOt()[i][j].getEtat());
+				Assert.assertTrue(oth_test.getOt()[i][j].getPx()==othe_1.getOt()[i][j].getPx());
+				Assert.assertTrue(oth_test.getOt()[i][j].getPy()==othe_1.getOt()[i][j].getPy());
 			}
 		}
 		
@@ -41,7 +41,7 @@ protected Othello oth_test;
 	}
 
 	@Test
-	public void testOtelo() {
+	public void testOthello() {
 		fail("Not yet implemented");
 	}
 
@@ -89,7 +89,42 @@ protected Othello oth_test;
 
 	@Test
 	public void testReg_ver() {
-		fail("Not yet implemented");
+		/*Test pour vérification de la regle de transformation verticale coté bas*/
+		Othello othe_1 = new Othello();
+		othe_1.getOt()[2][3]=new Pion('N', 2, 3);
+		othe_1.reg_ver(new Pion('N', 2, 3));
+		
+		oth_test.getOt()[2][3].setEtat('N');
+		oth_test.getOt()[2][3].setPx(2);
+		oth_test.getOt()[2][3].setPy(3);
+		oth_test.getOt()[3][3].setEtat('N');
+		for (int j=0; j<8;j++){
+			for(int i=0;i<8;i++ ){
+				Assert.assertTrue(oth_test.getOt()[i][j].getEtat()==othe_1.getOt()[i][j].getEtat());
+				Assert.assertTrue(oth_test.getOt()[i][j].getPx()==othe_1.getOt()[i][j].getPx());
+				Assert.assertTrue(oth_test.getOt()[i][j].getPy()==othe_1.getOt()[i][j].getPy());
+				
+			}
+			}
+		
+		/*Test pour vérification de la regle de transformation verticale coté Haut*/
+		othe_1 = new Othello();
+		oth_test = new Othello();
+		othe_1.getOt()[5][4]=new Pion('N', 5, 4);
+		othe_1.reg_ver(new Pion('N', 5, 4));
+		
+		oth_test.getOt()[5][4].setEtat('N');
+		oth_test.getOt()[5][4].setPx(5);
+		oth_test.getOt()[5][4].setPy(4);
+		oth_test.getOt()[4][4].setEtat('N');
+		for (int j=0; j<8;j++){
+			for(int i=0;i<8;i++ ){
+				Assert.assertTrue(oth_test.getOt()[i][j].getEtat()==othe_1.getOt()[i][j].getEtat());
+				Assert.assertTrue(oth_test.getOt()[i][j].getPx()==othe_1.getOt()[i][j].getPx());
+				Assert.assertTrue(oth_test.getOt()[i][j].getPy()==othe_1.getOt()[i][j].getPy());
+				
+			}
+			}
 	}
 
 	@Test
