@@ -1,4 +1,5 @@
 import static org.junit.Assert.*;
+import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.Before;
@@ -19,19 +20,23 @@ protected Othello oth_test;
 	@Test
 	public void testAjouterPion() {
 		Othello othe_1 = new Othello();
+		othe_1.afficher();
 		othe_1.getOt()[3][5].setEtat('B');
 		othe_1.getOt()[3][5].setPx(3);
 		othe_1.getOt()[3][5].setPy(5);
-		
-		oth_test.ajouterPion(new Pion('B',3,5));
-		oth_test.afficher();
+		othe_1.getOt()[3][4].setEtat('B');
 		System.out.println();
-		othe_1.afficher();
+		oth_test.afficher();
+		oth_test.ajouterPion(new Pion('B',3,5));
+	
+		
 		
 		for (int j=0; j<8;j++){
 			for(int i=0;i<8;i++ ){
-				
-				assertEquals(oth_test.getOt()[3][5], othe_1.getOt()[3][5]);
+				Assert.assertTrue("Le test s'est bien passé ",oth_test.getOt()[i][j].getEtat()==othe_1.getOt()[i][j].getEtat());
+				Assert.assertTrue("Le test s'est bien passé ",oth_test.getOt()[i][j].getPx()==othe_1.getOt()[i][j].getPx());
+				Assert.assertTrue("Le test s'est bien passé ",oth_test.getOt()[i][j].getPy()==othe_1.getOt()[i][j].getPy());
+				//assertEquals(oth_test.getOt()[3][5], othe_1.getOt()[3][5]);
 			}
 		}
 		
