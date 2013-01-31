@@ -1,6 +1,10 @@
 public class Othello {
 	private Pion ot[][] = new Pion[8][8];
 
+	public Pion[][] getOt() {
+		return ot;
+	}
+
 	public boolean ajouterPion(Pion p) {
 		if (ot[p.getPx()][p.getPy()] == null
 				|| ot[p.getPx()][p.getPy()].getEtat() == '*') {
