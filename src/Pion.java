@@ -49,8 +49,8 @@ public class Pion {
 	}
 
 	public void afficher_Pion() {
-		System.out.println("Etat " + Etat);
-		System.out.println("X " + Px);
-		System.out.println("Y " + Py);
+		System.out.println("Etat : [" + Etat+"]");
+		System.out.println("X = " + Px);
+		System.out.println("Y = " + Py);
 	}
 }
